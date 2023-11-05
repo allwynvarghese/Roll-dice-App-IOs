@@ -9,12 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var diceView1: UIImageView!
+    
+    @IBOutlet weak var diceView2: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        diceView1.image = UIImage(imageLiteralResourceName: "DiceSix")
+        
     }
+    
+    var diceArray: [String] = ["DiceOne", "DiceTwo","DiceThree", "DiceFour", "DiceFive", "DiceSix"]
 
-
+    @IBAction func rollButtonPressed(_ sender: UIButton) {
+        diceView1.image = UIImage(imageLiteralResourceName: diceArray.randomElement() ?? "DiceOne")
+        diceView2.image = UIImage(imageLiteralResourceName: diceArray.randomElement() ?? "DiceOne")
+    }
+    
 }
 
